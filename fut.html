@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap" rel="stylesheet">
+	<title>FUT Tax</title>
+	<style>
+		body{
+			background:url("images/fut1.jpg") no-repeat center center fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			font-family: 'Hind Siliguri', sans-serif;
+
+		}
+		div{
+			background: url("images/bg.png") no-repeat center center fixed;
+			background-repeat:no-repeat;
+			/*
+			background:transparent;*/
+			-webkit-box-shadow: -1px 9px 18px 0px rgba(0,0,0,0.75);
+			text-align:center;
+			margin:auto;
+			float:center;
+			width:40%;
+			margin-top:10%;
+			overflow:hidden;
+			}
+		input[type="number"]::-webkit-outer-spin-button,
+		input[type="number"]::-webkit-inner-spin-button {
+    		-webkit-appearance: none;
+    		margin: 0; 
+		}
+		button{
+			border-radius:0px;
+			background-color:#FD5353;
+			color:white;
+			width:150px;
+			border:0;
+			padding:0px;
+			height:25px;
+			cursor:pointer;
+			transition: transform .2s;
+			}
+		button:hover{
+			transform:scale(1.02);
+			}
+	</style>
+	<script>
+			function myFunction1(){
+				var number1 = document.getElementById("buyprice").value;
+				var number2 = document.getElementById("sellprice").value
+				var answer  = ((number2 * 0.95) - number1);
+				document.getElementById("calcprice").innerHTML = "Price after tax" + ": " + answer;
+			}
+	</script>
+</head>
+<body>
+<div><h5 style="padding:5px">
+	Ultimate Team Profit calculator. EA takes a 5% tax on every trade. With this tool you see how much actual profit you've made.</h5>
+	<h1>Calculator</h1>
+	<h5>Buy Price</h5>
+	<input type="number" autocomplete="off" id="buyprice">
+	<h5>Sell Price</h5>
+	<input type="number" autocomplete="off" id="sellprice">
+	<br>
+	<br>
+	<button onclick="myFunction1()">Calculate</button>
+	<p id="calcprice"></p>
+	<br>
+</div>
+</body>
+</html>
