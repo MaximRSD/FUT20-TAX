@@ -62,9 +62,10 @@
 				var number1 = document.getElementById("buyprice").value;
 				var number2 = document.getElementById("sellprice").value
 				var answer  = ((number2 * 0.95) - number1);
-				document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer;
+				var answer1 = Math.trunc(answer);
+				document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 
-				if(answer >0) {
+				if(answer1 >0) {
 					resultEl.style.color = "green";
 				}else if (answer <0) {
 					resultEl.style.color = "red";
