@@ -6,12 +6,10 @@
 	<title>FUT Tax</title>
 	<style>
 		body{
-
 			background:url("images/fut1.jpg") no-repeat center center fixed;
 			background-repeat:no-repeat;
 			background-size:cover;
 			font-family: 'Hind Siliguri', sans-serif;
-
 		}
 		.search{
 			background:transparent;
@@ -64,7 +62,7 @@
 			var buyprice = document.getElementById("buyprice").value;
 			var sellprice = document.getElementById("sellprice").value
 			var answer  = ((sellprice * 0.95) - buyprice);
-			var answer1 = Math.trunc(buyprice);
+			var answer1 = Math.trunc(answer);
 			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 
 			if(answer1 >0) {
@@ -77,11 +75,8 @@
 
 			var answer2 = ((sellprice * 0.95) - buyprice);
 			var answer3 = (answer2/ sellprice)*100;
-			var answer4 = Math.trunc(answer3);
+			var answer4 = Math.trunc(answer4);
 			document.getElementById("calcperc").innerHTML = answer4 + " %";
-		}
-		function email(){
-			window.open('mailto:maximjansen11@gmail.com?subject=FUT Tax');
 		}
 	</script>
 </head>
@@ -112,7 +107,6 @@
    			document.getElementById("btncalc").click();
  		}
 	});	
-
 	var input1 = document.getElementById("buyprice");
 	input1.addEventListener("keyup", function(event){
 		if(event.keyCode === 13){
@@ -120,7 +114,6 @@
 			document.getElementById("btncalc").click();
 		}
 	});
-
 </script>
 </div>
 </body>
