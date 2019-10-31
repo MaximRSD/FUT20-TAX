@@ -64,7 +64,7 @@
 			var answer  = ((sellprice * 0.95) - buyprice);
 			var answer1 = Math.trunc(answer);
 
-			if(answer1 >=0){
+			if(answer1 >0){
 			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 		}else 
 			document.getElementById("calcprice").innerHTML = "Loss" + ": " + answer1;
