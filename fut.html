@@ -64,7 +64,7 @@
 			var buyprice = document.getElementById("buyprice").value;
 			var sellprice = document.getElementById("sellprice").value
 			var answer  = ((sellprice * 0.95) - buyprice);
-			var answer1 = Math.trunc(answer);
+			var answer1 = Math.trunc(buyprice);
 			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 
 			if(answer1 >0) {
@@ -97,7 +97,7 @@
 	<h5>Sell Price</h5>
     <input class="searching" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
     type = "number"
-    maxlength = "8" type="number" id="sellprice" autocomplete="off" step="50" max="15000000"> 
+    maxlength = "8" id="sellprice" autocomplete="off" step="50" max="15000000"> 
 	<br>
 	<br>
 	<button id="btncalc" type="button" onclick="myFunction1()">Calculate</button>
@@ -113,7 +113,7 @@
  		}
 	});	
 
-	var input1 = document.getElementById("buyprice", "sellprice");
+	var input1 = document.getElementById("buyprice");
 	input1.addEventListener("keyup", function(event){
 		if(event.keyCode === 13){
 			event.preventDefault();
