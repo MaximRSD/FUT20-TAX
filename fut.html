@@ -36,47 +36,48 @@
 			height:25px;
 			cursor:pointer;
 			transition: transform .2s;
-			}
+		}
 		button:hover{transform:scale(1.02);}
-			.coins{
-				background: url(images/coins.png) no-repeat right center;
-				background-size: 1.2rem 1.2rem;
-				float:center;
-				margin:auto;
-				text-align:center;
-				margin-top:10%;
-				overflow:hidden;
-				width:40%;
-			}
-			.searching{
-				background:rgba(255,255,255,0.4);
-				background-image:url(images/coins.png);
-				background-size: 1.2rem 1rem;
-				background-repeat:no-repeat;
- 				background-position: right center;
-			}
+		.coins{
+			background: url(images/coins.png) no-repeat right center;
+			background-size: 1.2rem 1.2rem;
+			float:center;
+			margin:auto;
+			text-align:center;
+			margin-top:10%;
+			overflow:hidden;
+			width:40%;
+		}
+		.searching{
+			background:rgba(255,255,255,0.4);
+			background-image:url(images/coins.png);
+			background-size: 1.2rem 1rem;
+			background-repeat:no-repeat;
+ 			background-position: right center;
+		}
 	</style>
 	<script>
-			function myFunction1(){
-				var resultEl = document.getElementById("calcprice");
-				var number1 = document.getElementById("buyprice").value;
-				var number2 = document.getElementById("sellprice").value
-				var answer  = ((number2 * 0.95) - number1);
-				var answer1 = Math.trunc(answer);
-				document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
+		function myFunction1(){
+			var resultEl = document.getElementById("calcprice");
+			var number1 = document.getElementById("buyprice").value;
+			var number2 = document.getElementById("sellprice").value
+			var answer  = ((number2 * 0.95) - number1);
+			var answer1 = Math.trunc(answer);
+			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 
-				if(answer1 >0) {
-					resultEl.style.color = "green";
-				}else if (answer <0) {
-					resultEl.style.color = "red";
-				}else if (answer = number1){
-					resultEl.style.color = "black";
-				}
+			if(answer1 >0) {
+				resultEl.style.color = "green";
+			}else if (answer <0) {
+				resultEl.style.color = "red";
+			}else if (answer = number1){
+				resultEl.style.color = "black";
 			}
+		}
+
 	</script>
 </head>
 <body>
-	<form>
+
 <div class="search"><h5 style="padding:5px">
 	Ultimate Team Profit calculator. EA takes a 5% tax on every trade. With this tool you see how much actual profit you've made.</h5>
 	<h1>Calculator</h1>
@@ -86,10 +87,28 @@
     <input class="searching" type="number" id="sellprice" autocomplete="off" step="50" max="15000000"> 
 	<br>
 	<br>
-	<button type="button" id="btncalc" onclick="myFunction1()">Calculate</button>
+	<button id="btncalc" type="button" onclick="myFunction1()">Calculate</button>
 	<p id="calcprice"></p>
 	<br>
-</form>
+
+<script>
+	var input = document.getElementById("sellprice");
+	input.addEventListener("keyup", function(event) {
+  		if (event.keyCode === 13) {
+   			event.preventDefault();
+   			document.getElementById("btncalc").click();
+ 		}
+	});	
+
+	var input1 = document.getElementById("buyprice", "sellprice");
+	input1.addEventListener("keyup", function(event){
+		if(event.keyCode === 13){
+		event.preventDefault();
+		document.getElementById("btncalc").click();
+		}
+	});
+
+</script>
 </div>
 </body>
 </html>
