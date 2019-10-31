@@ -59,19 +59,24 @@
 	<script>
 		function myFunction1(){
 			var resultEl = document.getElementById("calcprice");
-			var number1 = document.getElementById("buyprice").value;
-			var number2 = document.getElementById("sellprice").value
-			var answer  = ((number2 * 0.95) - number1);
+			var buyprice = document.getElementById("buyprice").value;
+			var sellprice = document.getElementById("sellprice").value
+			var answer  = ((sellprice * 0.95) - buyprice);
 			var answer1 = Math.trunc(answer);
 			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
 
 			if(answer1 >0) {
 				resultEl.style.color = "green";
-			}else if (answer <0) {
+			}else if (answer1 <0) {
 				resultEl.style.color = "red";
-			}else if (answer = number1){
+			}else if (answer1 = number1){
 				resultEl.style.color = "black";
 			}
+
+			var answer2 = ((sellprice * 0.95) - buyprice);
+			var answer3 = (answer2/ sellprice)*100;
+			var answer4 = Math.trunc(answer3);
+			document.getElementById("calcperc").innerHTML = answer4 + " %";
 		}
 
 	</script>
@@ -89,7 +94,7 @@
 	<br>
 	<button id="btncalc" type="button" onclick="myFunction1()">Calculate</button>
 	<p id="calcprice"></p>
-	<br>
+	<p id="calcperc"></p>
 
 <script>
 	var input = document.getElementById("sellprice");
