@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="images/coins.png">
+	<link href="https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap" rel="stylesheet">
+	<title>FUT Tax</title>
+	<style>
+		body{
+			background:url("images/fut2.jpg") no-repeat center center fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			font-family: 'Hind Siliguri', sans-serif;
+		}
+        h4{
+            color: #1b194c;
+        }
+		.search{
+			background:transparent;
+			-webkit-box-shadow: -1px 9px 18px 0px rgba(0,0,0,0.75);
+			text-align:center;
+			margin:auto;
+			float:center;
+			width:40%;
+			margin-top:10%;
+			overflow:hidden;
+			}
+		input[type="number"]::-webkit-outer-spin-button,
+		input[type="number"]::-webkit-inner-spin-button {
+    		-webkit-appearance: none;
+    		margin: 0; 
+		}
+		button{
+			border-radius:0px;
+			background-color:#1b194c;
+			color:#67bad8;
+			width:150px;
+			border:0;
+			padding:0px;
+			height:25px;
+			cursor:pointer;
+			transition: transform .2s;
+		}
+		button:hover{transform:scale(1.02);}
+		.coins{
+			background: url(images/coins.png) no-repeat right center;
+			background-size: 1.2rem 1.2rem;
+			float:center;
+			margin:auto;
+			text-align:center;
+			margin-top:10%;
+			overflow:hidden;
+			width:40%;
+		}
+		.searching{
+			background:rgba(255,255,255,0.4);
+			background-image:url(images/coins.png);
+			background-size: 1.2rem 1rem;
+			background-repeat:no-repeat;
+ 			background-position: right center;
+		}
+		.linkbutton{
+			display: inline-block; 
+			justify-content: center; 
+			border: 1px solid #FD5353; 
+			text-decoration: none; 
+			color: white;
+			background:#FD5353;
+			width: 10%;
+		}
+        h5{
+            color: #67bad8;
+        }
+	</style>
+	<script>
+		function myFunction1(){
+			var resultEl = document.getElementById("calcprice");
+			var buyprice = document.getElementById("buyprice").value;
+			var sellprice = document.getElementById("sellprice").value
+			var answer  = ((sellprice * 0.95) - buyprice);
+			var answer1 = Math.trunc(answer);
+
+			if(answer1 >0){
+			document.getElementById("calcprice").innerHTML = "Actual profit" + ": " + answer1;
+		}else 
+			document.getElementById("calcprice").innerHTML = "Loss" + ": " + answer1;
+		
+
+			if(answer1 >0) {
+				resultEl.style.color = "green";
+			}else if (answer1 <0) {
+				resultEl.style.color = "red";
+			}else if (answer1 = number1){
+				resultEl.style.color = "black";
+			}
+
+			var answer2 = ((sellprice * 0.95) - buyprice);
+			var answer3 = (answer2/ sellprice)*100;
+			var answer4 = Math.trunc(answer3);
+			document.getElementById("calcperc").innerHTML = answer4 + " %";
+
+			var answer5 = (sellprice * 0.05);
+			document.getElementById("percprice").innerHTML = "EA tax is " + answer5 + " coins";
+		}
+	</script>
+</head>
+<body>
+<div class="search"><h5 style="padding:5px; display: inline-block;">
+	<a href="https://localhost/portfol/futtax/fut.html" class="a-header linkbutton"><div class="button text-center white mt-5">FUT 20</div></a>
+	<br/>Ultimate Team Profit calculator. EA takes a 5% tax on every trade. With this tool you see how much actual profit you've made.
+	<h1 style="color: #67bad8;">Calculator</h1>
+	<h5>Buy Price</h5>
+    <input class="searching" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "8" id="buyprice" autocomplete="off" step="50"  max="15000000"> 
+	<h5>Sell Price</h5>
+    <input class="searching" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "8" id="sellprice" autocomplete="off" step="50" max="15000000"> 
+	<br>
+	<br>
+	<button id="btncalc" type="button" onclick="myFunction1()">Calculate</button>
+	<p style="color: #67bad8;" id="calcprice"></p>
+	<p style="color: #67bad8;" id="calcperc"></p>
+	<p style="color: #67bad8;" id="percprice"></p>
+
+<script>
+	var input = document.getElementById("sellprice");
+	input.addEventListener("keyup", function(event) {
+  		if (event.keyCode === 13) {
+   			event.preventDefault();
+   			document.getElementById("btncalc").click();
+ 		}
+	});	
+	var input1 = document.getElementById("buyprice");
+	input1.addEventListener("keyup", function(event){
+		if(event.keyCode === 13){
+			event.preventDefault();
+			document.getElementById("btncalc").click();
+		}
+	});
+</script>
+</div>
+</body>
+</html>
